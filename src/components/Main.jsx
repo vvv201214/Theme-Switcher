@@ -25,11 +25,11 @@ export default function Main({settings}){
 
 
     const storedSettings = JSON.parse(localStorage.getItem('settings'));
-    document.documentElement.style.setProperty('--background-color', storedSettings.backgroundColor);
-    document.documentElement.style.setProperty('--primaryColor-color', storedSettings.primaryColor);
-    document.documentElement.style.setProperty('--secondaryColor-color', storedSettings.secondaryColor);
-    document.documentElement.style.setProperty('--fontSize', storedSettings.fontSize);
-    document.documentElement.style.setProperty('--fontColor-color', storedSettings.fontColor);
+    document.documentElement.style.setProperty('--background-color', storedSettings?.backgroundColor ? storedSettings?.backgroundColor : "#efecec");
+    document.documentElement.style.setProperty('--primaryColor-color', storedSettings?.primaryColor ? storedSettings?.primaryColor : "#51bcd6");
+    document.documentElement.style.setProperty('--secondaryColor-color', storedSettings?.secondaryColor ? storedSettings?.secondaryColor : "#292929");
+    document.documentElement.style.setProperty('--fontSize', storedSettings?.fontSize ? storedSettings?.fontSize : 15);
+    document.documentElement.style.setProperty('--fontColor-color', storedSettings?.fontColor ? storedSettings?.fontColor : "black");
 
   
 console.log("render", showSideBar)
