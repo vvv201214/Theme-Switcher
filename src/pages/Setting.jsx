@@ -36,62 +36,72 @@ const Settings = ({ setSettings }) => {
     setSettingsSaved(!settingsSaved)
   };
 
+  const resetSettings = () =>{
+    localStorage.clear();
+    setSettings({});
+    setSettingsSaved(!settingsSaved)
+  }
+
   return (
     <div className="page-content">
       <h2>Modify the colors and font size</h2>
 
       <div className='color-setting'>
-  <div className='setting-row'>
-    <div className='setting-column'>
-      <label>Background Color:</label>
-      <input
-        type="color"
-        value={backgroundColor}
-        onChange={(e) => setBackgroundColor(e.target.value)}
-      />
-    </div>
-    <div className='setting-column'>
-      <label>Primary Color:</label>
-      <input
-        type="color"
-        value={primaryColor}
-        onChange={(e) => setPrimaryColor(e.target.value)}
-      />
-    </div>
-  </div>
-  
-  <div className='setting-row'>
-    <div className='setting-column'>
-      <label>Secondary Color:</label>
-      <input
-        type="color"
-        value={secondaryColor}
-        onChange={(e) => setSecondaryColor(e.target.value)}
-      />
-    </div>
-    <div className='setting-column'>
-      <label>Font Size:</label>
-      <input
-        type="number"
-        value={fontSize}
-        onChange={(e) => setFontSize(e.target.value)}
-      />
-    </div>
-  </div>
-  
-  <div className='setting-row'>
-    <div className='setting-column'>
-      <label>Font Color:</label>
-      <input
-        type="color"
-        value={fontColor}
-        onChange={(e) => setFontColor(e.target.value)}
-      />
-    </div>
-  </div>
-</div>
+        <div className='setting-row'>
+          <div className='setting-column'>
+            <label>Background Color:</label>
+            <input
+              type="color"
+              value={backgroundColor}
+              onChange={(e) => setBackgroundColor(e.target.value)}
+            />
+          </div>
+          <div className='setting-column'>
+            <label>Primary Color:</label>
+            <input
+              type="color"
+              value={primaryColor}
+              onChange={(e) => setPrimaryColor(e.target.value)}
+            />
+          </div>
+        </div>
 
-      <button onClick={handleSaveSettings}>Save</button>
+        <div className='setting-row'>
+          <div className='setting-column'>
+            <label>Secondary Color:</label>
+            <input
+              type="color"
+              value={secondaryColor}
+              onChange={(e) => setSecondaryColor(e.target.value)}
+            />
+          </div>
+          <div className='setting-column'>
+            <label>Font Size:</label>
+            <input
+              type="number"
+              value={fontSize}
+              onChange={(e) => setFontSize(e.target.value)}
+            />
+          </div>
+        </div>
+
+        <div className='setting-row'>
+          <div className='setting-column'>
+            <label>Font Color:</label>
+            <input
+              type="color"
+              value={fontColor}
+              onChange={(e) => setFontColor(e.target.value)}
+            />
+          </div>
+        </div>
+      </div>
+
+      <div className='btn'>
+        <button className="save-button" onClick={handleSaveSettings}>Save</button>
+        <button className="reset-button" onClick={resetSettings}>Reset</button>
+      </div>
+
     </div>
   );
 };
