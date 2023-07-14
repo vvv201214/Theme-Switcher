@@ -7,12 +7,12 @@ const Settings = ({ setSettings }) => {
   const [secondaryColor, setSecondaryColor] = useState('');
   const [fontSize, setFontSize] = useState('');
   const [fontColor, setFontColor] = useState('');
-  let [settingsSaved, setSettingsSaved] = useState(false); // New state to track if settings were saved
+  let [settingsSaved, setSettingsSaved] = useState(false);
 
 
   useEffect(() => {
+    // update state after refreshing page
     const storedSettings = JSON.parse(localStorage.getItem('settings'));
-
     if (storedSettings) {
       setBackgroundColor(storedSettings.backgroundColor);
       setPrimaryColor(storedSettings.primaryColor);
@@ -22,6 +22,7 @@ const Settings = ({ setSettings }) => {
     }
   }, []);
 
+  // save setting function
   const handleSaveSettings = () => {
     const settings = {
       backgroundColor,
@@ -36,6 +37,7 @@ const Settings = ({ setSettings }) => {
     setSettingsSaved(!settingsSaved)
   };
 
+  // reset all setting function
   const resetSettings = () =>{
     localStorage.clear();
     setSettings({});
@@ -45,7 +47,6 @@ const Settings = ({ setSettings }) => {
   return (
     <div className="page-content">
       <h2>Modify the colors and font size</h2>
-
       <div className='color-setting'>
         <div className='setting-row'>
           <div className='setting-column'>

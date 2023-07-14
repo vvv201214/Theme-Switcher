@@ -8,7 +8,7 @@ import Main from './components/Main';
 
 
 const App = () => {
-  const [settings, setSettings] = useState({});
+  const [settings, setSettings] = useState({});// updating this setting state in Settings.jsx and using in Main.jsx
   return (
     <BrowserRouter>
       <>

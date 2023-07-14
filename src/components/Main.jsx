@@ -10,9 +10,10 @@ import HomePage from "../pages/HomePage";
 
 
 export default function Main({settings}){
-    const location = useLocation();
-    const [showSideBar, setShowSidebar] = useState(true);
+    const location = useLocation(); //location for identifying homepage
+    const [showSideBar, setShowSidebar] = useState(true);// state for showing and hide sidebar
 
+    // render color after save settings
     useEffect(() => {
         if (Object.keys(settings).length !== 0) {
             document.documentElement.style.setProperty('--background-color', settings?.backgroundColor ? settings?.backgroundColor : "#efecec");
@@ -24,6 +25,7 @@ export default function Main({settings}){
     }, [settings]);
 
 
+    // get data from local storage and render color after refreshing 
     const storedSettings = JSON.parse(localStorage.getItem('settings'));
     document.documentElement.style.setProperty('--background-color', storedSettings?.backgroundColor ? storedSettings?.backgroundColor : "#efecec");
     document.documentElement.style.setProperty('--primaryColor-color', storedSettings?.primaryColor ? storedSettings?.primaryColor : "#51bcd6");
