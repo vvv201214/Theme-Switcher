@@ -1,0 +1,29 @@
+header{
+    text-align: center;
+    height:73px;
+    @media (max-width: 768px) {
+      height:60px;
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+    
+
+    h1{
+      @media (max-width: 768px) {
+        font-size: 18px
+      }
+    }
+
+    .mobile-menu-icon {
+      display: none; // Hide the icon by default
+      cursor: pointer;
+      @media (max-width: 768px) {
+        display: block; // Show the icon in mobile view
+      }
+    }
+}

@@ -1,0 +1,56 @@
+.main {
+    display: flex;
+    height: auto;
+    min-height: 100vh;
+    background-color: var(--background-color);
+  
+    .middle {
+      flex: 1;
+      display: flex;
+  
+      .sidenav {
+        flex: .2;
+        background-color: var(--secondaryColor-color);
+        // color: black;
+
+        @media (max-width: 768px) {
+          display: none;
+        }
+      }
+
+      .sidenav-mobile{
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 50%;
+        background-color: var(--secondaryColor-color);
+        z-index: 1000;
+      }
+  
+      .content {
+        flex: .8;
+        @media (max-width: 768px) {
+          flex: 1;
+        }
+        display: flex;
+        flex-direction: column;
+  
+        .header {
+          background-color: var(--primaryColor-color);
+
+        }
+  
+        .footer {
+          margin-top: auto;
+        }
+
+        .outlet{
+            font-size: calc(var(--fontSize) * 1px);
+            color: var(--fontColor-color);
+            background-color: var(--background-color);
+        }
+      }
+    }
+  }
+  
